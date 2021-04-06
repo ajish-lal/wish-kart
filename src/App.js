@@ -1,9 +1,12 @@
 import './App.css';
+import LoginComponent from './containers/login';
+import RegisterComponent from './containers/register';
 
 function App() {
   return (
     <div>
-      Hello
+      <LoginComponent></LoginComponent>
+      <RegisterComponent></RegisterComponent>
     </div>
   );
 }
