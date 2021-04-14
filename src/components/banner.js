@@ -10,6 +10,7 @@ const styles = {
         position: 'relative',
         height: '100vh',
         justifyContent: 'space-between',
+        userSelect: 'none',
     }
 };
 

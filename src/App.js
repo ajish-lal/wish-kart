@@ -16,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <BannerComponent>
+              Hello
             </BannerComponent>
           </Route>
 

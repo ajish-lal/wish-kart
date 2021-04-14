@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import authApp from '../firebase.js'
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 const AuthProvider = (props) => {
     const [currentUser, setCurrentUser] = useState();

@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Redirect } from "react-router";
 import FormComponent from "../components/form";
 import authApp from "../firebase";
+import { AuthContext } from '../providers/auth'
 
 const formFieldsData = [
     {
@@ -21,6 +23,8 @@ const LoginComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
 
+    const currentUser = useContext(AuthContext);
+
     const getFormValues = async (values) => {
         setFormFields(values);
         setDisableButton(true);
@@ -32,6 +36,13 @@ const LoginComponent = props => {
             setDisableButton(false);
             alert(err.message);
         }
+    }
+
+    console.log(currentUser);
+    if (currentUser) {
+        return (
+            <Redirect to="/"></Redirect>
+        );
     }
 
     return (
