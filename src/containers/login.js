@@ -16,13 +16,14 @@ const formFields = [
     }
 ]
 
+const getFormValues = (values) => {
+    console.log(values, formFields);
+}
+
 const LoginComponent = props => {
-    const getFormValues = (values) => {
-        console.log(values, formFields);
-    }
 
     return (
-        <FormComponent fields={formFields} buttonLabel="Login" sendForm={getFormValues}></FormComponent>
+        <FormComponent title={'Login'} fields={formFields} buttonLabel="Login" sendForm={getFormValues}></FormComponent>
     );
 }
 

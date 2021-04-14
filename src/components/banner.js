@@ -20,7 +20,7 @@ const BannerComponent = (props) => {
             <div className="wish-banner">
                 Wish-Kart
                 <div className="sub-section">
-                    For the best online shopping experience!
+                    Making your Wish come true!
                 </div>
             </div>
             {props.children}

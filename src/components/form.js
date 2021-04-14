@@ -15,7 +15,7 @@ const ColoredTextField = withStyles({
 })(TextField);
 
 const FormComponent = props => {
-    const values = { ...props.fields };
+    const values = [...props.fields];
 
     const handleChange = ({ target }, index) => {
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -40,6 +40,7 @@ const FormComponent = props => {
                     fullWidth
                     type={field.type}
                     defaultValue={field.value}
+                    helperText={field.hasError ? field.errorMsg : ''}
                     required={field.required}
                     error={field.hasError}
                     onChange={(event) => handleChange(event, index)}

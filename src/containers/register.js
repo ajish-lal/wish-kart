@@ -1,6 +1,7 @@
+import { useState } from "react";
 import FormComponent from "../components/form";
 
-const formFields = [
+const formFieldsData = [
     {
         name: "Username",
         type: "text",
@@ -11,7 +12,7 @@ const formFields = [
         name: "Email",
         type: "email",
         hasError: false,
-        required: true
+        required: false
     },
     {
         name: "Password",
@@ -23,13 +24,25 @@ const formFields = [
         name: "Confirm Password",
         type: "password",
         hasError: false,
-        required: true
+        required: true,
+        errorMsg: 'Passwords do not match!'
     }
 ]
 
+
 const RegisterComponent = props => {
+    const [formFields, setFormFields] = useState(formFieldsData);
+
     const getFormValues = (values) => {
         console.log(values, formFields);
+        // Password matching
+        if (values[2].value !== values[3].value) {
+            values[3].hasError = true;
+            setFormFields(values);
+        } else {
+            values[3].hasError = false;
+            setFormFields(values);
+        }
     }
 
     return (
