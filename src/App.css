@@ -7,10 +7,12 @@
     justify-content: center;
     width: 70%;
     padding: 0px 20px 0px 100px;
+    letter-spacing: 20px;
 }
 .sub-section {
     font-size: 26px;
     margin: 20px 0px 0px 74px;
+    letter-spacing: 6px;
 }
 .form-container {
     right: 0;

@@ -18,9 +18,9 @@ const BannerComponent = (props) => {
     return (
         <div style={styles.paperContainer}>
             <div className="wish-banner">
-                Wish-Kart
+                <strong>Wish-Kart</strong>
                 <div className="sub-section">
-                    Making your Wish come true!
+                    Making your <strong>Wish</strong> come true!
                 </div>
             </div>
             {props.children}
