@@ -7,24 +7,32 @@ import {
 import LoginComponent from './containers/login';
 import RegisterComponent from './containers/register';
 import BannerComponent from './components/banner';
+import AuthProvider from './providers/auth';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path='/login'>
-          <BannerComponent>
-            <LoginComponent></LoginComponent>
-          </BannerComponent>
-        </Route>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <BannerComponent>
+            </BannerComponent>
+          </Route>
 
-        <Route path='/register'>
-          <BannerComponent>
-            <RegisterComponent></RegisterComponent>
-          </BannerComponent>
-        </Route>
-      </Switch>
-    </Router>
+          <Route exact path='/login'>
+            <BannerComponent>
+              <LoginComponent></LoginComponent>
+            </BannerComponent>
+          </Route>
+
+          <Route exact path='/register'>
+            <BannerComponent>
+              <RegisterComponent></RegisterComponent>
+            </BannerComponent>
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 

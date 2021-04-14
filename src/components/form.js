@@ -47,7 +47,7 @@ const FormComponent = props => {
                 />
             ))}
             <br /><br /><br />
-            <Button variant="contained" type="submit" disableElevation>{props.buttonLabel}</Button>
+            <Button variant="contained" type="submit" disableElevation disabled={props.disableButton}>{props.buttonLabel}</Button>
         </form>
     )
 }

@@ -1,18 +1,19 @@
 import { useState } from "react";
 import FormComponent from "../components/form";
+import authApp from "../firebase";
 
 const formFieldsData = [
     {
         name: "Username",
         type: "text",
+        value: "Ajish",
         hasError: false,
-        required: true
     },
     {
         name: "Email",
         type: "email",
         hasError: false,
-        required: false
+        required: true
     },
     {
         name: "Password",
@@ -32,9 +33,9 @@ const formFieldsData = [
 
 const RegisterComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
+    const [disableButton, setDisableButton] = useState(false);
 
-    const getFormValues = (values) => {
-        console.log(values, formFields);
+    const getFormValues = async (values) => {
         // Password matching
         if (values[2].value !== values[3].value) {
             values[3].hasError = true;
@@ -42,11 +43,20 @@ const RegisterComponent = props => {
         } else {
             values[3].hasError = false;
             setFormFields(values);
+            setDisableButton(true);
+            try {
+                await authApp.auth().createUserWithEmailAndPassword(values[1].value, values[2].value);
+                alert("Account created successfully");
+            } catch (err) {
+                alert(err.message);
+                setDisableButton(false);
+            }
         }
     }
 
     return (
-        <FormComponent title={'Register'} fields={formFields} buttonLabel="Register" sendForm={getFormValues}></FormComponent>
+        <FormComponent title={'Register'} fields={formFields} buttonLabel="Register" disableButton={disableButton}
+            sendForm={getFormValues}></FormComponent>
     );
 }
 
