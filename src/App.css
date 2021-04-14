@@ -1,0 +1,23 @@
+.wish-banner {
+    color: white;
+    font-size: 80px;
+    background: #67009180;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    padding: 0px 100px;
+}
+.sub-section {
+    font-size: 26px;
+    margin: 20px 0px 0px 74px;
+}
+.form-container {
+    right: 0;
+    width: 25%;
+    text-align: center;
+    background-color: #0000008a;
+    color: #fff;
+    padding: 30px 80px 50px 60px;
+    min-width: 200px;
+}

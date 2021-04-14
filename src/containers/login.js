@@ -5,12 +5,14 @@ const formFields = [
         name: "Username",
         type: "text",
         value: 'Sample',
-        hasError: false
+        hasError: false,
+        required: true
     },
     {
         name: "Password",
         type: "password",
-        hasError: false
+        hasError: false,
+        required: true
     }
 ]
 

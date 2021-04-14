@@ -1,4 +1,18 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, withStyles } from "@material-ui/core";
+
+const ColoredTextField = withStyles({
+    root: {
+        '& .MuiFormLabel-root': {
+            color: 'white',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: 'white',
+        },
+        '& .MuiInputBase-root': {
+            color: 'white',
+        }
+    },
+})(TextField);
 
 const FormComponent = props => {
     const values = { ...props.fields };
@@ -16,19 +30,22 @@ const FormComponent = props => {
     }
 
     return (
-        <form onSubmit={sendFormValues}>
+        <form onSubmit={sendFormValues} className="form-container">
+            <h1>{props.title}</h1>
             {props.fields.map((field, index) => (
-                <TextField
+                <ColoredTextField
                     key={index}
                     label={field.name}
                     style={{ margin: 8 }}
                     fullWidth
                     type={field.type}
                     defaultValue={field.value}
+                    required={field.required}
                     error={field.hasError}
                     onChange={(event) => handleChange(event, index)}
                 />
             ))}
+            <br /><br /><br />
             <Button variant="contained" type="submit" disableElevation>{props.buttonLabel}</Button>
         </form>
     )

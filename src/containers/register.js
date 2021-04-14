@@ -4,23 +4,26 @@ const formFields = [
     {
         name: "Username",
         type: "text",
-        value: 'Sample',
-        hasError: false
+        hasError: false,
+        required: true
     },
     {
         name: "Email",
         type: "email",
-        hasError: true
+        hasError: false,
+        required: true
     },
     {
         name: "Password",
         type: "password",
-        hasError: false
+        hasError: false,
+        required: true
     },
     {
         name: "Confirm Password",
         type: "password",
-        hasError: false
+        hasError: false,
+        required: true
     }
 ]
 
@@ -30,7 +33,7 @@ const RegisterComponent = props => {
     }
 
     return (
-        <FormComponent fields={formFields} buttonLabel="Register" sendForm={getFormValues}></FormComponent>
+        <FormComponent title={'Register'} fields={formFields} buttonLabel="Register" sendForm={getFormValues}></FormComponent>
     );
 }
 
