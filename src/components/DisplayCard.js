@@ -18,10 +18,16 @@ const useStyles = makeStyles({
     "& .MuiTypography-h6": {
       fontSize: "1rem",
     },
+    "& .MuiCardActions-root": {
+      justifyContent: "center",
+    },
   },
 });
 
-function DisplayCardComponent({ title, desc, imgUrl, price, children }) {
+function DisplayCardComponent({
+  data: { title, desc, imgUrl, price },
+  children,
+}) {
   const classes = useStyles();
 
   return (
@@ -40,6 +46,9 @@ function DisplayCardComponent({ title, desc, imgUrl, price, children }) {
           </Typography>
           <Typography variant="caption" color="textSecondary" component="p">
             {desc}
+          </Typography>
+          <Typography variant="subtitle2" component="p">
+            Rs. {price}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -1,25 +1,62 @@
-import { Button } from "@material-ui/core";
-import { Fragment } from "react";
+import { Button, Icon } from "@material-ui/core";
+import { Fragment, useState } from "react";
 import DisplayCardComponent from "../components/DisplayCard";
 
 const ResultsComponent = ({ results }) => {
+  const [productResults, setResults] = useState(results);
+  const [quantity, setQuantity] = useState(0);
+
+  const addToCart = (index) => {
+    let tempArray = [...productResults];
+    let tempObj = { ...tempArray[index] };
+    tempObj.quantity = 1;
+    tempArray[index] = tempObj;
+    setResults(tempArray);
+  };
+
+  const increaseQuantity = (data) => {};
+
+  const decreaseQuantity = (data) => {};
+
   return (
     <Fragment>
-      {results.map((data, index) => (
-        <DisplayCardComponent key={index} title={data.title} desc={data.desc}>
-          <Button size="small" color="primary">
-            Add to Cart
-          </Button>
-          <Button size="small" color="primary">
-            +
-          </Button>
-          <Button size="small" color="primary">
-            -
-          </Button>
+      {productResults.map((data, index) => (
+        <DisplayCardComponent key={index} data={data}>
+          {!data.quantity && (
+            <Button
+              size="small"
+              color="primary"
+              variant="outlined"
+              onClick={() => addToCart(index)}
+            >
+              Add to Cart
+            </Button>
+          )}
+          {data.quantity && (
+            <div className="quantity-button">
+              <Button
+                size="small"
+                color="primary"
+                variant="outlined"
+                onClick={() => increaseQuantity(index)}
+              >
+                <Icon color="primary">add</Icon>
+              </Button>
+              0
+              <Button
+                size="small"
+                color="secondary"
+                variant="outlined"
+                onClick={() => decreaseQuantity(index)}
+              >
+                <Icon color="secondary">remove</Icon>
+              </Button>
+            </div>
+          )}
         </DisplayCardComponent>
       ))}
       {results.map((data, index) => (
-        <DisplayCardComponent key={index} title={data.title} desc={data.desc}>
+        <DisplayCardComponent key={index} data={data}>
           <Button size="small" color="primary">
             Add to Cart
           </Button>

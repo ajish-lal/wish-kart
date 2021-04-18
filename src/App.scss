@@ -45,19 +45,30 @@
 
   .filter-container {
     width: 15%;
+    padding: 10px 5px;
+    border-right: 1px solid #e0e0e0;
   }
   .results-container {
     display: flex;
     width: 65%;
-    padding: 10px;
+    padding: 10px 5px;
     flex-wrap: wrap;
     justify-content: space-between;
     &:after {
       content: "";
       flex: auto;
     }
+
+    .quantity-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+    }
   }
   .cart-container {
     width: 20%;
+    padding: 10px 5px;
+    border-left: 1px solid #e0e0e0;
   }
 }
