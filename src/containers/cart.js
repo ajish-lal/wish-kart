@@ -3,7 +3,7 @@ const CartComponent = () => {
 
     return (
         <div>
-            Hello
+            Cart
         </div>
     );
 }

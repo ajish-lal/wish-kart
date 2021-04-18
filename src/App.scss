@@ -1,41 +1,63 @@
 .banner-container {
+  display: flex;
+  width: 70%;
+
+  .wish-banner {
+    color: white;
+    font-size: 80px;
+    background: #67009180;
     display: flex;
-    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 20px 0px 100px;
+    letter-spacing: 20px;
 
-    .wish-banner {
-      color: white;
-      font-size: 80px;
-      background: #67009180;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      padding: 0px 20px 0px 100px;
-      letter-spacing: 20px;
-
-      .sub-section {
-        font-size: 26px;
-        margin: 20px 0px 0px 74px;
-        letter-spacing: 6px;
-      }
+    .sub-section {
+      font-size: 26px;
+      margin: 20px 0px 0px 74px;
+      letter-spacing: 6px;
+    }
   }
 }
 .form-container {
-    text-align: center;
-    width: 100%;
-    background-color: #0000008a;
-    color: #fff;
-    padding: 30px 80px 50px 60px;
-    min-width: 200px;
+  text-align: center;
+  width: 100%;
+  background-color: #0000008a;
+  color: #fff;
+  padding: 30px 80px 50px 60px;
+  min-width: 200px;
 }
 .side-panel {
-    display: flex;
-    width: 30%;
+  display: flex;
+  width: 30%;
 }
 .login-register-link {
-    padding-top: 50px;
+  padding-top: 50px;
 }
 .login-register-link a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.products-container {
+  display: flex;
+
+  .filter-container {
+    width: 15%;
+  }
+  .results-container {
+    display: flex;
+    width: 65%;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &:after {
+      content: "";
+      flex: auto;
+    }
+  }
+  .cart-container {
+    width: 20%;
+  }
 }

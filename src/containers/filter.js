@@ -3,7 +3,7 @@ const FilterComponent = () => {
 
     return (
         <div>
-            Hello
+            Filter
         </div>
     );
 }
