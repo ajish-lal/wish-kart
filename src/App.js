@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,17 +8,16 @@ import LoginComponent from './containers/login';
 import RegisterComponent from './containers/register';
 import BannerComponent from './components/banner';
 import AuthProvider from './providers/auth';
+import PrivateRoute from './privateRoute';
+import NavigationBar from './containers/navbar';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Switch>
-          <Route exact path='/'>
-            <BannerComponent>
-              Hello
-            </BannerComponent>
-          </Route>
+          <PrivateRoute exact path='/' component={NavigationBar}>
+          </PrivateRoute>
 
           <Route exact path='/login'>
             <BannerComponent>

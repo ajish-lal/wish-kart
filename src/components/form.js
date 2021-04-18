@@ -14,6 +14,37 @@ const ColoredTextField = withStyles({
     },
 })(TextField);
 
+const StyledButton = withStyles({
+    root: {
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 16,
+        padding: '6px 12px',
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#0022ff59',
+        borderColor: '#0022ff59',
+        '&:hover': {
+            backgroundColor: '#0069d9',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+        '&:active': {
+            boxShadow: 'none',
+            backgroundColor: '#0062cc',
+            borderColor: '#005cbf',
+        },
+        '&:focus': {
+            boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+        },
+        '&:disabled': {
+            color: '#e0e0e0b5',
+            backgroundColor: '#0022ff59',
+            borderColor: '#0022ff59',
+        }
+    },
+})(Button);
+
 const FormComponent = props => {
     const values = [...props.fields];
 
@@ -47,7 +78,10 @@ const FormComponent = props => {
                 />
             ))}
             <br /><br /><br />
-            <Button variant="contained" type="submit" disableElevation disabled={props.disableButton}>{props.buttonLabel}</Button>
+            <StyledButton variant="contained" type="submit" disableElevation color="primary" fullWidth
+                disabled={props.disableButton}>{props.buttonLabel}</StyledButton>
+
+            {props.children}
         </form>
     )
 }

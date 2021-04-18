@@ -18,13 +18,17 @@ const BannerComponent = (props) => {
 
     return (
         <div style={styles.paperContainer}>
-            <div className="wish-banner">
-                <strong>Wish-Kart</strong>
-                <div className="sub-section">
-                    Making your <strong>Wish</strong> come true!
+            <div className="banner-container">
+                <div className="wish-banner">
+                    <strong>Wish-Kart</strong>
+                    <div className="sub-section">
+                        Making your <strong>Wish</strong> come true!
+                </div>
                 </div>
             </div>
-            {props.children}
+            <div className="side-panel">
+                {props.children}
+            </div>
         </div>
     );
 }

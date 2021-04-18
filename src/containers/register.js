@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import FormComponent from "../components/form";
 import authApp from "../firebase";
 
@@ -34,6 +36,7 @@ const formFieldsData = [
 const RegisterComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
+    let history = useHistory();
 
     const getFormValues = async (values) => {
         // Password matching
@@ -46,7 +49,7 @@ const RegisterComponent = props => {
             setDisableButton(true);
             try {
                 await authApp.auth().createUserWithEmailAndPassword(values[1].value, values[2].value);
-                alert("Account created successfully");
+                history.push('/login');
             } catch (err) {
                 alert(err.message);
                 setDisableButton(false);
@@ -56,7 +59,11 @@ const RegisterComponent = props => {
 
     return (
         <FormComponent title={'Register'} fields={formFields} buttonLabel="Register" disableButton={disableButton}
-            sendForm={getFormValues}></FormComponent>
+            sendForm={getFormValues}>
+            <div className="login-register-link">
+                <Link to="/login">Existing User? Login here</Link>
+            </div>
+        </FormComponent>
     );
 }
 

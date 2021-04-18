@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import FormComponent from "../components/form";
 import authApp from "../firebase";
 import { AuthContext } from '../providers/auth'
@@ -8,6 +9,7 @@ const formFieldsData = [
     {
         name: "Email",
         type: "email",
+        value: "ajish@gmail.com",
         hasError: false,
         required: true
     },
@@ -22,7 +24,7 @@ const formFieldsData = [
 const LoginComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
-
+    let history = useHistory();
     const currentUser = useContext(AuthContext);
 
     const getFormValues = async (values) => {
@@ -30,24 +32,24 @@ const LoginComponent = props => {
         setDisableButton(true);
         try {
             await authApp.auth().signInWithEmailAndPassword(values[0].value, values[1].value);
-            setDisableButton(false);
-            alert('Log in successful!');
+            history.push('/');
         } catch (err) {
             setDisableButton(false);
             alert(err.message);
         }
     }
 
-    console.log(currentUser);
     if (currentUser) {
-        return (
-            <Redirect to="/"></Redirect>
-        );
+        return <Redirect to='/'></Redirect>
     }
 
     return (
         <FormComponent title={'Login'} fields={formFields} buttonLabel="Login" disableButton={disableButton}
-            sendForm={getFormValues}></FormComponent>
+            sendForm={getFormValues}>
+            <div className="login-register-link">
+                <Link to="/register">New to Wishkart? Create an account</Link>
+            </div>
+        </FormComponent>
     );
 }
 
