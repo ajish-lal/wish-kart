@@ -4,12 +4,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import LoginComponent from './containers/login';
-import RegisterComponent from './containers/register';
-import BannerComponent from './components/banner';
+import LoginComponent from './containers/Login';
+import RegisterComponent from './containers/Register';
+import BannerComponent from './components/Banner';
 import AuthProvider from './providers/auth';
 import PrivateRoute from './privateRoute';
-import NavigationBar from './containers/navbar';
+import NavigationBar from './containers/Navbar';
 
 function App() {
   return (

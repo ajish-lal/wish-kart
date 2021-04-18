@@ -1,38 +1,19 @@
+import CartComponent from "../../containers/Cart";
+import FilterComponent from "../../containers/Filter";
+import ResultsComponent from "../../containers/Results";
 
 function Products(props) {
 
     return (
-        <div style={{ display: 'flex' }} className="body2">
+        <div style={{ display: 'flex' }}>
             <div style={{ width: '15%' }}>
-                Filter
+                <FilterComponent />
             </div>
             <div style={{ width: '65%' }}>
-                Products
+                <ResultsComponent />
             </div>
             <div style={{ width: '20%' }}>
-                Cart
-            </div>
-            <div class="night">
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
-                <div class="shooting_star"></div>
+                <CartComponent />
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { logout } from '../firebase'
-import Products from '../pages/Products/products';
+import Products from '../pages/Products/Products';
 
 const useStyles = makeStyles((theme) => ({
     root: {
