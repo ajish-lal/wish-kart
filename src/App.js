@@ -14,7 +14,6 @@ import NavigationBar from './containers/Navbar';
 function App() {
   return (
     <AuthProvider>
-      Hello
       <Router>
         <Switch>
           <PrivateRoute exact path='/' component={NavigationBar}>
