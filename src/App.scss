@@ -49,15 +49,12 @@
     border-right: 1px solid #e0e0e0;
   }
   .results-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    // grid-auto-rows: 20px;
+    grid-gap: 5px;
     width: 65%;
     padding: 10px 5px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    &:after {
-      content: "";
-      flex: auto;
-    }
 
     .quantity-button {
       display: flex;

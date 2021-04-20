@@ -7,7 +7,7 @@ const displayData = [
     id: "1",
     title: "Moda Rapido",
     desc: "Printed Round Neck T-shirt",
-    imgUrl: "",
+    imgUrl: "/assets/images/products/1.webp",
     price: 320,
     availableQuantity: 10,
   },
@@ -48,15 +48,15 @@ const displayData = [
 function Products(props) {
   return (
     <div className="products-container">
-      <div className="filter-container">
+      <section className="filter-container">
         <FilterComponent />
-      </div>
-      <div className="results-container">
+      </section>
+      <section className="results-container">
         <ResultsComponent results={displayData} />
-      </div>
-      <div className="cart-container">
+      </section>
+      <section className="cart-container">
         <CartComponent />
-      </div>
+      </section>
     </div>
   );
 }

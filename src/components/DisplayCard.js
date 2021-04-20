@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 230,
     margin: 5,
     "& .MuiTypography-root": {
       whiteSpace: "nowrap",
