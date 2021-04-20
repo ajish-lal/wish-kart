@@ -1,6 +1,8 @@
 import { Button, Icon } from "@material-ui/core";
 import { Fragment, useState } from "react";
 import DisplayCardComponent from "../components/DisplayCard";
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const ResultsComponent = ({ results }) => {
   const [productResults, setResults] = useState(results);
@@ -40,7 +42,7 @@ const ResultsComponent = ({ results }) => {
                 variant="outlined"
                 onClick={() => increaseQuantity(index)}
               >
-                <Icon color="primary">add</Icon>
+                <AddIcon />
               </Button>
               0
               <Button
@@ -49,7 +51,7 @@ const ResultsComponent = ({ results }) => {
                 variant="outlined"
                 onClick={() => decreaseQuantity(index)}
               >
-                <Icon color="secondary">remove</Icon>
+                <RemoveIcon />
               </Button>
             </div>
           )}

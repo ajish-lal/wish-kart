@@ -34,7 +34,7 @@ function DisplayCardComponent({
 
   return (
     <Card className={classes.root} variant="outlined">
-      <CardActionArea disableRipple>
+      <CardActionArea disableRipple disabled>
         <CardMedia
           component="img"
           alt={title}

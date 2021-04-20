@@ -14,7 +14,7 @@ const styles = {
     }
 };
 
-const BannerComponent = (props) => {
+const BannerComponent = ({ children }) => {
 
     return (
         <div style={styles.paperContainer}>
@@ -27,7 +27,7 @@ const BannerComponent = (props) => {
                 </div>
             </div>
             <div className="side-panel">
-                {props.children}
+                {children}
             </div>
         </div>
     );
