@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     "& .MuiTypography-h6": {
       fontSize: "1rem",
     },
+    "& .MuiCardMedia-img": {
+      height: '100%'
+    },
     "& .MuiCardActions-root": {
       justifyContent: "center",
     },
@@ -30,13 +33,13 @@ function DisplayCardComponent({
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant="outlined">
       <CardActionArea disableRipple>
         <CardMedia
           component="img"
           alt={title}
           height="240"
-          image="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+          image={imgUrl}
           title={title}
         />
         <CardContent>

@@ -14,9 +14,9 @@ const ResultsComponent = ({ results }) => {
     setResults(tempArray);
   };
 
-  const increaseQuantity = (data) => {};
+  const increaseQuantity = (data) => { };
 
-  const decreaseQuantity = (data) => {};
+  const decreaseQuantity = (data) => { };
 
   return (
     <Fragment>
@@ -53,19 +53,6 @@ const ResultsComponent = ({ results }) => {
               </Button>
             </div>
           )}
-        </DisplayCardComponent>
-      ))}
-      {results.map((data, index) => (
-        <DisplayCardComponent key={index} data={data}>
-          <Button size="small" color="primary">
-            Add to Cart
-          </Button>
-          <Button size="small" color="primary">
-            +
-          </Button>
-          <Button size="small" color="primary">
-            -
-          </Button>
         </DisplayCardComponent>
       ))}
     </Fragment>
