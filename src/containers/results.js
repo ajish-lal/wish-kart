@@ -7,7 +7,7 @@ import { ProductContext } from "../providers/product";
 
 const ResultsComponent = ({ results }) => {
   const [productResults, setResults] = useState(results);
-  const [cartData, setCartData] = useContext(ProductContext);
+  const [, setCartData] = useContext(ProductContext);
 
   const addToCart = (index) => {
     let tempArray = [...productResults];

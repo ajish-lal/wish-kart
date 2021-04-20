@@ -82,7 +82,7 @@ const CartComponent = ({ productData }) => {
                     </List>
                 </Fragment>}
 
-                {!cartData || cartData.length === 0 && <div className={classes.emptyCart}>
+                {cartData && cartData.length === 0 && <div className={classes.emptyCart}>
                     Add your wishes to see the Magic!
                 </div>}
             </Grid>
