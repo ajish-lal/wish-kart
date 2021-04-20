@@ -9,7 +9,7 @@ const formFieldsData = [
     {
         name: "Email",
         type: "email",
-        value: "ajish@gmail.com",
+        value: "",
         hasError: false,
         required: true
     },

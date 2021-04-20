@@ -8,7 +8,7 @@ const formFieldsData = [
     {
         name: "Username",
         type: "text",
-        value: "Ajish",
+        value: "",
         hasError: false,
     },
     {
