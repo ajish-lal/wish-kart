@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wish-kart/static/css/main.cce10731.chunk.css",
-    "main.js": "/wish-kart/static/js/main.3201bd34.chunk.js",
-    "main.js.map": "/wish-kart/static/js/main.3201bd34.chunk.js.map",
+    "main.js": "/wish-kart/static/js/main.2c389a41.chunk.js",
+    "main.js.map": "/wish-kart/static/js/main.2c389a41.chunk.js.map",
     "runtime-main.js": "/wish-kart/static/js/runtime-main.03e3e347.js",
     "runtime-main.js.map": "/wish-kart/static/js/runtime-main.03e3e347.js.map",
     "static/js/2.83b55ab6.chunk.js": "/wish-kart/static/js/2.83b55ab6.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.03e3e347.js",
     "static/js/2.83b55ab6.chunk.js",
     "static/css/main.cce10731.chunk.css",
-    "static/js/main.3201bd34.chunk.js"
+    "static/js/main.2c389a41.chunk.js"
   ]
 }
