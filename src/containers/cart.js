@@ -1,54 +1,50 @@
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import FolderIcon from '@material-ui/icons/Folder';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { Divider } from '@material-ui/core';
+import { Fragment, useContext } from 'react';
+import { ProductContext } from '../providers/product';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        border: '1px solid #e0e0e0',
         '& .MuiTypography-displayBlock': {
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             width: '62%',
+            fontSize: 14,
         }
     },
-    demo: {
+    content: {
         backgroundColor: theme.palette.background.paper,
+        textAlign: 'center',
     },
     title: {
         margin: theme.spacing(4, 0, 2),
         textAlign: 'center',
     },
+    total: {
+        padding: '0px 16px',
+        fontSize: 13
+    },
+    emptyCart: {
+        margin: '52px 10px',
+        textAlign: 'center',
+        fontSize: 14
+    }
 }));
 
 const CartComponent = ({ productData }) => {
     const classes = useStyles();
-
-    const data = [
-        {
-            id: "1",
-            title: "Moda Rapido",
-            desc: "Printed Round Neck T-shirt",
-            price: 1320,
-            quantity: 2
-        }, {
-            id: "2",
-            title: "Roadster",
-            desc: "Solid Round Neck T-shirt",
-            price: 920,
-            quantity: 10,
-        }
-    ]
+    const [cartData] = useContext(ProductContext);
+    const totalAmount = cartData.reduce((acc, curr) => (acc + curr.price * (curr.quantity)), 0);
+    const totalItems = cartData.reduce((acc, curr) => (acc + curr.quantity), 0);
 
     return (
         <div className={classes.root}>
@@ -56,32 +52,39 @@ const CartComponent = ({ productData }) => {
                 <Typography variant="h5" className={classes.title}>
                     My Wish-Kart
                 </Typography>
-                <div className={classes.demo}>
+                {cartData && cartData.length > 0 && <Fragment>
+                    <div className={classes.content}>
+                        <span className={classes.total}>Total items: {totalItems}</span>
+                        <List>
+                            {cartData.map((data, index) => (
+                                <ListItem key={index}>
+                                    <ListItemText
+                                        primary={data.title}
+                                        secondary={data.quantity + ' x ' + data.desc}
+                                    />
+                                    <ListItemSecondaryAction>
+                                        Rs. {data.price}
+                                    </ListItemSecondaryAction>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </div>
+                    <Divider />
                     <List>
-                        {data.map((data, index) => (
-                            <ListItem key={index}>
-                                <ListItemText
-                                    primary={data.title}
-                                    secondary={data.desc}
-                                />
-                                <ListItemSecondaryAction>
-                                    Rs. {data.price}
-                                </ListItemSecondaryAction>
-                            </ListItem>
-                        ))}
+                        <ListItem>
+                            <ListItemText
+                                primary="Total Amount"
+                            />
+                            <ListItemSecondaryAction>
+                                Rs. {totalAmount}
+                            </ListItemSecondaryAction>
+                        </ListItem>
                     </List>
-                </div>
-                <Divider />
-                <List>
-                    <ListItem>
-                        <ListItemText
-                            primary="Total Amount"
-                        />
-                        <ListItemSecondaryAction>
-                            Rs. {2240}
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                </List>
+                </Fragment>}
+
+                {!cartData || cartData.length === 0 && <div className={classes.emptyCart}>
+                    Add your wishes to see the Magic!
+                </div>}
             </Grid>
         </div>
     );

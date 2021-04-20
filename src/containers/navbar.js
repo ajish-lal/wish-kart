@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    background: {
+        background: 'linear-gradient(0.25turn, #4791db, #4caf50);'
+    },
     menuButton: {
         marginRight: theme.spacing(2),
     },
@@ -26,7 +29,7 @@ function NavigationBar(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" style={{ backgroundColor: '#1c213a' }}>
+            <AppBar position="fixed" className={classes.background}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit">
                         <MenuIcon />

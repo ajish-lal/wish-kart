@@ -23,7 +23,7 @@ const displayData = [
     },
     {
         id: "3",
-        title: "HERE&NOW",
+        title: "Here&Now",
         desc: "Solid Polo Collar T-shirt",
         imgUrl: img3,
         price: 720,
@@ -63,7 +63,7 @@ const displayData = [
     },
     {
         id: "8",
-        title: "HERE&NOW",
+        title: "Here&Now",
         desc: "Solid Polo Collar T-shirt",
         imgUrl: img3,
         price: 999,
@@ -82,13 +82,13 @@ const displayData = [
         title: "Allen Solly Sport",
         desc: "Colourblocked Polo Collar T-shirt",
         imgUrl: img5,
-        price: 320,
+        price: 820,
         availableQuantity: 10,
     },
     {
         id: "11",
         title: "Munchkin Cat",
-        desc: "Colourful Munchkin Cat",
+        desc: "A Playful Munchkin Cat",
         imgUrl: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
         price: 320,
         availableQuantity: 10,

@@ -1,12 +1,13 @@
-import { Button, Icon } from "@material-ui/core";
-import { Fragment, useState } from "react";
+import { Button } from "@material-ui/core";
+import { Fragment, useContext, useState } from "react";
 import DisplayCardComponent from "../components/DisplayCard";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { ProductContext } from "../providers/product";
 
 const ResultsComponent = ({ results }) => {
   const [productResults, setResults] = useState(results);
-  const [quantity, setQuantity] = useState(0);
+  const [cartData, setCartData] = useContext(ProductContext);
 
   const addToCart = (index) => {
     let tempArray = [...productResults];
@@ -14,11 +15,42 @@ const ResultsComponent = ({ results }) => {
     tempObj.quantity = 1;
     tempArray[index] = tempObj;
     setResults(tempArray);
+    setCartData(curr => [...curr, tempObj]);
   };
 
-  const increaseQuantity = (data) => { };
+  const increaseQuantity = (index) => {
+    let tempArray = [...productResults];
+    let tempObj = { ...tempArray[index] };
+    tempObj.quantity += 1;
+    tempArray[index] = tempObj;
+    setResults(tempArray);
 
-  const decreaseQuantity = (data) => { };
+    setCartData(curr => {
+      let tempArray = [...curr];
+      let index = tempArray.findIndex(elem => elem.id === tempObj.id);
+      tempArray[index] = tempObj;
+      return tempArray;
+    });
+  };
+
+  const decreaseQuantity = (index) => {
+    let tempArray = [...productResults];
+    let tempObj = { ...tempArray[index] };
+    tempObj.quantity -= 1;
+    tempArray[index] = tempObj;
+    setResults(tempArray);
+
+    setCartData(curr => {
+      let tempArray = [...curr];
+      let index = tempArray.findIndex(elem => elem.id === tempObj.id);
+      if (tempObj.quantity > 0)
+        tempArray[index] = tempObj;
+      else
+        tempArray.splice(index, 1);
+      return tempArray;
+    });
+
+  };
 
   return (
     <Fragment>
@@ -34,7 +66,7 @@ const ResultsComponent = ({ results }) => {
               Add to Cart
             </Button>
           )}
-          {data.quantity && (
+          {data.quantity > 0 && (
             <div className="quantity-button">
               <Button
                 size="small"
@@ -44,7 +76,7 @@ const ResultsComponent = ({ results }) => {
               >
                 <AddIcon />
               </Button>
-              0
+              {data.quantity}
               <Button
                 size="small"
                 color="secondary"

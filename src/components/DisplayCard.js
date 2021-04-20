@@ -18,10 +18,11 @@ const useStyles = makeStyles({
       fontSize: "1rem",
     },
     "& .MuiCardMedia-img": {
-      height: '100%'
+      height: 300
     },
     "& .MuiCardActions-root": {
       justifyContent: "center",
+      height: 30
     },
   },
 });
