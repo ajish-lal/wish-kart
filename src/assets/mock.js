@@ -88,7 +88,7 @@ const displayData = [
     {
         id: "11",
         title: "Munchkin Cat",
-        desc: "A Playful Munchkin Cat",
+        desc: "A Playful Munchkin Kitty",
         imgUrl: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
         price: 320,
         availableQuantity: 10,

@@ -83,7 +83,7 @@ const CartComponent = ({ productData }) => {
                 </Fragment>}
 
                 {cartData && cartData.length === 0 && <div className={classes.emptyCart}>
-                    Add your wishes to see the Magic!
+                    Add items to see the Magic!
                 </div>}
             </Grid>
         </div>
