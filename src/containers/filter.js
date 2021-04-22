@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 const FilterComponent = () => {
     const classes = useStyles();
-    const [checked, setChecked] = useState([0]);
+    const [checked, setChecked] = useState([]);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
