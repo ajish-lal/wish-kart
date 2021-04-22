@@ -10,7 +10,6 @@ import BannerComponent from './components/Banner';
 import AuthProvider from './providers/auth';
 import PrivateRoute from './PrivateRoute';
 import NavigationBar from './containers/Navbar';
-import { Fragment } from 'react';
 import LoaderComponent from './components/Loader';
 import LoaderProvider from './providers/loader';
 

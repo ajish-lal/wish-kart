@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import LoaderComponent from "../components/Loader.js";
 import authApp from '../firebase.js'
 import { useLoader } from "./loader.js";
 

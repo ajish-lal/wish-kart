@@ -13,12 +13,20 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         border: '1px solid #e0e0e0',
+        height: 'calc(100% - 90px)',
+        overflow: 'auto',
+        position: 'fixed',
+        width: 'inherit',
+
         '& .MuiTypography-displayBlock': {
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             width: '62%',
             fontSize: 14,
+        },
+        '& .MuiListItem-secondaryAction': {
+            paddingBottom: 0
         }
     },
     content: {
