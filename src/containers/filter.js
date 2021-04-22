@@ -5,9 +5,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import Slider from "@material-ui/core/Slider";
 import { useState } from "react";
+import RatingComponent from "../components/Rating";
 
 const useStyles = makeStyles({
     root: {
@@ -38,36 +38,10 @@ const FilterComponent = () => {
                 Filters
             </Typography>
 
-            <div className={classes.root}>
-                <Typography id="discrete-slider">
-                    Rating
-                </Typography>
-                <List>
-                    {[4, 3, 2, 1].map((value) => {
-                        const labelId = `checkbox-list-label2-${value}`;
-
-                        return (
-                            <ListItem disableRipple key={value} dense button onClick={handleToggle(value)}>
-                                <ListItemIcon>
-                                    <Checkbox
-                                        edge="start"
-                                        checked={checked.indexOf(value) !== -1}
-                                        tabIndex={-1}
-                                        disableRipple
-                                    />
-                                </ListItemIcon>
-                                <StarRateIcon></StarRateIcon>
-                                <StarRateIcon></StarRateIcon>
-                                <StarRateIcon></StarRateIcon>
-                                <StarRateIcon></StarRateIcon>
-                            </ListItem>
-                        );
-                    })}
-                </List>
-            </div>
+            <RatingComponent></RatingComponent>
 
             <div className={classes.root}>
-                <Typography id="discrete-slider">
+                <Typography id="discrete-slider" variant="subtitle2">
                     Brand
                 </Typography>
                 <List>
@@ -81,6 +55,7 @@ const FilterComponent = () => {
                                         edge="start"
                                         checked={checked.indexOf(value) !== -1}
                                         tabIndex={-1}
+                                        color="primary"
                                         disableRipple
                                     />
                                 </ListItemIcon>
@@ -92,11 +67,11 @@ const FilterComponent = () => {
             </div>
 
             <div className={classes.root}>
-                <Typography id="discrete-slider" gutterBottom>
-                    Price
+                <Typography id="discrete-slider" gutterBottom variant="subtitle2">
+                    Price (Rs.)
                 </Typography>
                 <Slider
-                    defaultValue={30}
+                    defaultValue={1000}
                     valueLabelDisplay="auto"
                     step={500}
                     marks
