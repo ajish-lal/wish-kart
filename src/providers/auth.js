@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import LoaderComponent from "../components/Loader.js";
 import authApp from '../firebase.js'
+import { useLoader } from "./loader.js";
 
 const AuthContext = createContext();
 
@@ -10,6 +12,7 @@ export function useAuth() {
 function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
+    const { showLoader } = useLoader();
 
     const value = {
         currentUser,
@@ -19,9 +22,11 @@ function AuthProvider({ children }) {
     }
 
     useEffect(() => {
+        showLoader(true);
         const unsubscribe = authApp.auth().onAuthStateChanged(user => {
             setCurrentUser(user);
             setLoading(false);
+            showLoader(false);
         });
         return unsubscribe;
     }, []);
@@ -40,7 +45,7 @@ function AuthProvider({ children }) {
 
     return (
         <AuthContext.Provider value={value}>
-            {!loading ? children : "Loading"}
+            {!loading ? children : null}
         </AuthContext.Provider>
     );
 }

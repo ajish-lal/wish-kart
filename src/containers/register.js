@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import FormComponent from "../components/Form";
 import { useAuth } from "../providers/auth";
+import { useLoader } from "../providers/loader";
 
 const formFieldsData = [
     {
@@ -37,6 +38,7 @@ const RegisterComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
     const { register } = useAuth();
+    const { showLoader } = useLoader();
     let history = useHistory();
 
     const getFormValues = async (values) => {
@@ -49,11 +51,14 @@ const RegisterComponent = props => {
             setFormFields(values);
             setDisableButton(true);
             try {
+                showLoader(true);
                 await register(values[1].value, values[2].value);
                 history.push('/login');
             } catch (err) {
                 alert(err.message);
                 setDisableButton(false);
+            } finally {
+                showLoader(false);
             }
         }
     }

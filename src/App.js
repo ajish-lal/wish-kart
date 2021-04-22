@@ -10,29 +10,35 @@ import BannerComponent from './components/Banner';
 import AuthProvider from './providers/auth';
 import PrivateRoute from './PrivateRoute';
 import NavigationBar from './containers/Navbar';
+import { Fragment } from 'react';
+import LoaderComponent from './components/Loader';
+import LoaderProvider from './providers/loader';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Switch>
-          <PrivateRoute exact path='/' component={NavigationBar}>
-          </PrivateRoute>
+    <LoaderProvider>
+      <LoaderComponent></LoaderComponent>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <PrivateRoute exact path='/' component={NavigationBar}>
+            </PrivateRoute>
 
-          <Route exact path='/login'>
-            <BannerComponent>
-              <LoginComponent></LoginComponent>
-            </BannerComponent>
-          </Route>
+            <Route exact path='/login'>
+              <BannerComponent>
+                <LoginComponent></LoginComponent>
+              </BannerComponent>
+            </Route>
 
-          <Route exact path='/register'>
-            <BannerComponent>
-              <RegisterComponent></RegisterComponent>
-            </BannerComponent>
-          </Route>
-        </Switch>
-      </Router>
-    </AuthProvider>
+            <Route exact path='/register'>
+              <BannerComponent>
+                <RegisterComponent></RegisterComponent>
+              </BannerComponent>
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
+    </LoaderProvider>
   );
 }
 
