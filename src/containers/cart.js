@@ -6,8 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Divider } from '@material-ui/core';
-import { Fragment, useContext } from 'react';
-import { ProductContext } from '../providers/product';
+import { Fragment } from 'react';
+import { useProductService } from '../providers/product';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CartComponent = ({ productData }) => {
     const classes = useStyles();
-    const [cartData] = useContext(ProductContext);
+    const { cartData } = useProductService();
     const totalAmount = cartData.reduce((acc, curr) => (acc + curr.price * (curr.quantity)), 0);
     const totalItems = cartData.reduce((acc, curr) => (acc + curr.quantity), 0);
 

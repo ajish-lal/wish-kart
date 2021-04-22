@@ -10,8 +10,4 @@ const authApp = firebase.initializeApp({
     appId: "1:677506068189:web:ff01bdb0096e910bdc7534"
 });
 
-export const logout = () => {
-    return authApp.auth().signOut();
-}
-
 export default authApp;

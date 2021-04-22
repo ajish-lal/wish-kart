@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Redirect, useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import FormComponent from "../components/Form";
-import authApp from "../firebase";
-import { AuthContext } from '../providers/auth'
+import { useAuth } from "../providers/auth";
 
 const formFieldsData = [
     {
@@ -21,17 +20,17 @@ const formFieldsData = [
     }
 ]
 
-const LoginComponent = props => {
+function LoginComponent() {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
+    const { currentUser, login } = useAuth();
     let history = useHistory();
-    const currentUser = useContext(AuthContext);
 
     const getFormValues = async (values) => {
         setFormFields(values);
         setDisableButton(true);
         try {
-            await authApp.auth().signInWithEmailAndPassword(values[0].value, values[1].value);
+            await login(values[0].value, values[1].value);
             history.push('/');
         } catch (err) {
             setDisableButton(false);

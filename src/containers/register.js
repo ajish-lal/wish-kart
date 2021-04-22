@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import FormComponent from "../components/Form";
-import authApp from "../firebase";
+import { useAuth } from "../providers/auth";
 
 const formFieldsData = [
     {
@@ -36,6 +36,7 @@ const formFieldsData = [
 const RegisterComponent = props => {
     const [formFields, setFormFields] = useState(formFieldsData);
     const [disableButton, setDisableButton] = useState(false);
+    const { register } = useAuth();
     let history = useHistory();
 
     const getFormValues = async (values) => {
@@ -48,7 +49,7 @@ const RegisterComponent = props => {
             setFormFields(values);
             setDisableButton(true);
             try {
-                await authApp.auth().createUserWithEmailAndPassword(values[1].value, values[2].value);
+                await register(values[1].value, values[2].value);
                 history.push('/login');
             } catch (err) {
                 alert(err.message);

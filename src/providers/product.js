@@ -1,12 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const ProductContext = createContext();
+const ProductContext = createContext();
+
+export function useProductService() {
+    return useContext(ProductContext);
+}
 
 const ProductProvider = (props) => {
     const [cartData, setCartData] = useState([]);
 
+    const value = {
+        cartData,
+        setCartData
+    }
+
     return (
-        <ProductContext.Provider value={[cartData, setCartData]}>
+        <ProductContext.Provider value={value}>
             {props.children}
         </ProductContext.Provider>
     );

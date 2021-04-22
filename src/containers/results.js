@@ -1,13 +1,13 @@
 import { Button } from "@material-ui/core";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useState } from "react";
 import DisplayCardComponent from "../components/DisplayCard";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { ProductContext } from "../providers/product";
+import { useProductService } from "../providers/product";
 
 const ResultsComponent = ({ results }) => {
   const [productResults, setResults] = useState(results);
-  const [, setCartData] = useContext(ProductContext);
+  const { setCartData } = useProductService();
 
   const addToCart = (index) => {
     let tempArray = [...productResults];

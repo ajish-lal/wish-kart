@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { logout } from '../firebase'
 import Products from '../pages/products/Products';
+import { useAuth } from '../providers/auth';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 function NavigationBar(props) {
     const classes = useStyles();
+    const { logout } = useAuth();
 
     return (
         <div className={classes.root}>
