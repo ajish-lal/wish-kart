@@ -13,6 +13,9 @@ const useStyles = makeStyles({
         width: '90%',
         '& .MuiListItemIcon-root': {
             minWidth: 'auto'
+        },
+        '& .MuiSvgIcon-colorPrimary': {
+            color: '#ffbc00'
         }
     }
 });
@@ -38,7 +41,7 @@ export default function RatingComponent() {
 
     return (
         <div className={classes.root}>
-            <Typography id="discrete-slider" variant="subtitle2">
+            <Typography variant="subtitle2">
                 Rating
             </Typography>
             <List>
@@ -57,6 +60,9 @@ export default function RatingComponent() {
                             {[...Array(value)].map((elem, index) => (
                                 <StarRateIcon key={index} color="primary"></StarRateIcon>
                             ))}
+                            <Typography variant="caption">
+                                & Up
+                            </Typography>
                         </ListItem>
                     );
                 })}
