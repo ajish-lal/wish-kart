@@ -11,6 +11,9 @@ import { useState } from "react";
 const useStyles = makeStyles({
     root: {
         width: '90%',
+        '& .MuiListItemIcon-root': {
+            minWidth: 'auto'
+        }
     }
 });
 

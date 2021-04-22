@@ -12,6 +12,9 @@ import RatingComponent from "../components/Rating";
 const useStyles = makeStyles({
     root: {
         width: '90%',
+        '& .MuiListItemIcon-root': {
+            minWidth: 'auto'
+        }
     }
 });
 
@@ -64,12 +67,12 @@ const FilterComponent = () => {
                         );
                     })}
                 </List>
-            </div>
-
-            <div className={classes.root}>
                 <Typography id="discrete-slider" gutterBottom variant="subtitle2">
                     Price (Rs.)
                 </Typography>
+            </div>
+
+            <div style={{ width: '76%' }}>
                 <Slider
                     defaultValue={1000}
                     valueLabelDisplay="auto"
