@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/wish-kart/static/css/main.83f65bb9.chunk.css",
-    "main.js": "/wish-kart/static/js/main.76e7f2e6.chunk.js",
-    "main.js.map": "/wish-kart/static/js/main.76e7f2e6.chunk.js.map",
-    "runtime-main.js": "/wish-kart/static/js/runtime-main.9def801f.js",
-    "runtime-main.js.map": "/wish-kart/static/js/runtime-main.9def801f.js.map",
-    "static/js/2.6f317f9e.chunk.js": "/wish-kart/static/js/2.6f317f9e.chunk.js",
-    "static/js/2.6f317f9e.chunk.js.map": "/wish-kart/static/js/2.6f317f9e.chunk.js.map",
-    "static/js/3.6a35edf7.chunk.js": "/wish-kart/static/js/3.6a35edf7.chunk.js",
-    "static/js/3.6a35edf7.chunk.js.map": "/wish-kart/static/js/3.6a35edf7.chunk.js.map",
+    "main.css": "/wish-kart/static/css/main.b050f366.chunk.css",
+    "main.js": "/wish-kart/static/js/main.c81387bd.chunk.js",
+    "main.js.map": "/wish-kart/static/js/main.c81387bd.chunk.js.map",
+    "runtime-main.js": "/wish-kart/static/js/runtime-main.5c87ee4d.js",
+    "runtime-main.js.map": "/wish-kart/static/js/runtime-main.5c87ee4d.js.map",
+    "static/js/2.bfd551a6.chunk.js": "/wish-kart/static/js/2.bfd551a6.chunk.js",
+    "static/js/2.bfd551a6.chunk.js.map": "/wish-kart/static/js/2.bfd551a6.chunk.js.map",
+    "static/js/3.71c71787.chunk.js": "/wish-kart/static/js/3.71c71787.chunk.js",
+    "static/js/3.71c71787.chunk.js.map": "/wish-kart/static/js/3.71c71787.chunk.js.map",
+    "static/js/4.c193cf3a.chunk.js": "/wish-kart/static/js/4.c193cf3a.chunk.js",
+    "static/js/4.c193cf3a.chunk.js.map": "/wish-kart/static/js/4.c193cf3a.chunk.js.map",
+    "static/js/5.180ad4d0.chunk.js": "/wish-kart/static/js/5.180ad4d0.chunk.js",
+    "static/js/5.180ad4d0.chunk.js.map": "/wish-kart/static/js/5.180ad4d0.chunk.js.map",
     "index.html": "/wish-kart/index.html",
-    "static/css/main.83f65bb9.chunk.css.map": "/wish-kart/static/css/main.83f65bb9.chunk.css.map",
-    "static/js/2.6f317f9e.chunk.js.LICENSE.txt": "/wish-kart/static/js/2.6f317f9e.chunk.js.LICENSE.txt",
+    "static/css/main.b050f366.chunk.css.map": "/wish-kart/static/css/main.b050f366.chunk.css.map",
+    "static/js/2.bfd551a6.chunk.js.LICENSE.txt": "/wish-kart/static/js/2.bfd551a6.chunk.js.LICENSE.txt",
     "static/media/1.32d53198.webp": "/wish-kart/static/media/1.32d53198.webp",
     "static/media/2.ac621d77.webp": "/wish-kart/static/media/2.ac621d77.webp",
     "static/media/3.0ab7b48a.webp": "/wish-kart/static/media/3.0ab7b48a.webp",
@@ -20,9 +24,9 @@
     "static/media/wish-cover.9d6f01d0.jpg": "/wish-kart/static/media/wish-cover.9d6f01d0.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9def801f.js",
-    "static/js/2.6f317f9e.chunk.js",
-    "static/css/main.83f65bb9.chunk.css",
-    "static/js/main.76e7f2e6.chunk.js"
+    "static/js/runtime-main.5c87ee4d.js",
+    "static/js/2.bfd551a6.chunk.js",
+    "static/css/main.b050f366.chunk.css",
+    "static/js/main.c81387bd.chunk.js"
   ]
 }
