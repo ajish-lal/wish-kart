@@ -10,15 +10,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function LoaderComponent() {
+export default function LoaderComponent({ showLoader }) {
     const classes = useStyles();
     const { loader } = useLoader();
 
     return (
-        <div>
-            <Backdrop className={classes.backdrop} open={loader}>
-                <CircularProgress color="inherit" />
-            </Backdrop>
-        </div>
+        <Backdrop className={classes.backdrop} open={loader || showLoader}>
+            <CircularProgress color="inherit" />
+        </Backdrop>
     );
 }

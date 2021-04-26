@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useAuth } from '../providers/auth';
+import LoaderComponent from '../components/Loader';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,7 +43,7 @@ function NavigationBar(props) {
                     <Button color="inherit" onClick={logout}>Logout</Button>
                 </Toolbar>
             </AppBar>
-            <Suspense fallback={""}>
+            <Suspense fallback={<LoaderComponent showLoader={true}></LoaderComponent>}>
                 <Products></Products>
             </Suspense>
         </div>
