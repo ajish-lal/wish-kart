@@ -3,14 +3,14 @@
     "main.css": "/wish-kart/static/css/main.f2edd552.chunk.css",
     "main.js": "/wish-kart/static/js/main.e49a7251.chunk.js",
     "main.js.map": "/wish-kart/static/js/main.e49a7251.chunk.js.map",
-    "runtime-main.js": "/wish-kart/static/js/runtime-main.caaab852.js",
-    "runtime-main.js.map": "/wish-kart/static/js/runtime-main.caaab852.js.map",
+    "runtime-main.js": "/wish-kart/static/js/runtime-main.128c4447.js",
+    "runtime-main.js.map": "/wish-kart/static/js/runtime-main.128c4447.js.map",
     "static/js/2.b71e21d0.chunk.js": "/wish-kart/static/js/2.b71e21d0.chunk.js",
     "static/js/2.b71e21d0.chunk.js.map": "/wish-kart/static/js/2.b71e21d0.chunk.js.map",
     "static/js/3.d0f281a6.chunk.js": "/wish-kart/static/js/3.d0f281a6.chunk.js",
     "static/js/3.d0f281a6.chunk.js.map": "/wish-kart/static/js/3.d0f281a6.chunk.js.map",
-    "static/js/4.39185756.chunk.js": "/wish-kart/static/js/4.39185756.chunk.js",
-    "static/js/4.39185756.chunk.js.map": "/wish-kart/static/js/4.39185756.chunk.js.map",
+    "static/js/4.bba47f75.chunk.js": "/wish-kart/static/js/4.bba47f75.chunk.js",
+    "static/js/4.bba47f75.chunk.js.map": "/wish-kart/static/js/4.bba47f75.chunk.js.map",
     "static/js/5.180ad4d0.chunk.js": "/wish-kart/static/js/5.180ad4d0.chunk.js",
     "static/js/5.180ad4d0.chunk.js.map": "/wish-kart/static/js/5.180ad4d0.chunk.js.map",
     "index.html": "/wish-kart/index.html",
@@ -24,7 +24,7 @@
     "static/media/wish-cover.9d6f01d0.jpg": "/wish-kart/static/media/wish-cover.9d6f01d0.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.caaab852.js",
+    "static/js/runtime-main.128c4447.js",
     "static/js/2.b71e21d0.chunk.js",
     "static/css/main.f2edd552.chunk.css",
     "static/js/main.e49a7251.chunk.js"
