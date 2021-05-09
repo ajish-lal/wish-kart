@@ -5,25 +5,25 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { useProductService } from "../providers/product";
 
-const ResultsComponent = ({ results }) => {
-  const [productResults, setResults] = useState(results);
+const ResultsComponent = () => {
+  const { productList, setProductList } = useProductService();
   const { setCartData } = useProductService();
 
   const addToCart = (index) => {
-    let tempArray = [...productResults];
+    let tempArray = [...productList];
     let tempObj = { ...tempArray[index] };
     tempObj.quantity = 1;
     tempArray[index] = tempObj;
-    setResults(tempArray);
+    setProductList(tempArray);
     setCartData(curr => [...curr, tempObj]);
   };
 
   const increaseQuantity = (index) => {
-    let tempArray = [...productResults];
+    let tempArray = [...productList];
     let tempObj = { ...tempArray[index] };
     tempObj.quantity += 1;
     tempArray[index] = tempObj;
-    setResults(tempArray);
+    setProductList(tempArray);
 
     setCartData(curr => {
       let tempArray = [...curr];
@@ -34,11 +34,11 @@ const ResultsComponent = ({ results }) => {
   };
 
   const decreaseQuantity = (index) => {
-    let tempArray = [...productResults];
+    let tempArray = [...productList];
     let tempObj = { ...tempArray[index] };
     tempObj.quantity -= 1;
     tempArray[index] = tempObj;
-    setResults(tempArray);
+    setProductList(tempArray);
 
     setCartData(curr => {
       let tempArray = [...curr];
@@ -52,45 +52,52 @@ const ResultsComponent = ({ results }) => {
 
   };
 
-  return (
-    <Fragment>
-      {productResults.map((data, index) => (
-        <DisplayCardComponent key={index} data={data}>
-          {!data.quantity && (
-            <Button
-              size="small"
-              color="primary"
-              variant="outlined"
-              onClick={() => addToCart(index)}
-            >
-              Add to Cart
-            </Button>
-          )}
-          {data.quantity > 0 && (
-            <div className="quantity-button">
+  if (productList.length === 0) {
+    return (
+      <div style={{ margin: '0 auto' }}>
+        No products avaialble. Kindly relax your filter preferences.
+      </div>
+    );
+  } else
+    return (
+      <Fragment>
+        {productList.map((data, index) => (
+          <DisplayCardComponent key={index} data={data}>
+            {!data.quantity && (
               <Button
                 size="small"
                 color="primary"
                 variant="outlined"
-                onClick={() => increaseQuantity(index)}
+                onClick={() => addToCart(index)}
               >
-                <AddIcon />
+                Add to Cart
               </Button>
-              {data.quantity}
-              <Button
-                size="small"
-                color="secondary"
-                variant="outlined"
-                onClick={() => decreaseQuantity(index)}
-              >
-                <RemoveIcon />
-              </Button>
-            </div>
-          )}
-        </DisplayCardComponent>
-      ))}
-    </Fragment>
-  );
+            )}
+            {data.quantity > 0 && (
+              <div className="quantity-button">
+                <Button
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => increaseQuantity(index)}
+                >
+                  <AddIcon />
+                </Button>
+                {data.quantity}
+                <Button
+                  size="small"
+                  color="secondary"
+                  variant="outlined"
+                  onClick={() => decreaseQuantity(index)}
+                >
+                  <RemoveIcon />
+                </Button>
+              </div>
+            )}
+          </DisplayCardComponent>
+        ))}
+      </Fragment>
+    );
 };
 
 export default ResultsComponent;

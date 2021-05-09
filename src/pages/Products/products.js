@@ -11,7 +11,7 @@ function Products(props) {
     <ProductProvider>
       <div className="products-container">
         <section className="filter-wrapper">
-          <FilterComponent />
+          <FilterComponent results={displayData} />
         </section>
         <section className="results-wrapper">
           <div className="search-bar">
@@ -20,7 +20,7 @@ function Products(props) {
             <SearchBarComponent></SearchBarComponent>
           </div>
           <section className="results-container">
-            <ResultsComponent results={displayData} />
+            <ResultsComponent />
           </section>
         </section>
         <section className="cart-container">

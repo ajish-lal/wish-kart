@@ -6,8 +6,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Slider from "@material-ui/core/Slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RatingComponent from "../components/Rating";
+import { useProductService } from "../providers/product";
 
 const useStyles = makeStyles({
     root: {
@@ -18,9 +19,14 @@ const useStyles = makeStyles({
     }
 });
 
-const FilterComponent = () => {
+const FilterComponent = ({ results }) => {
     const classes = useStyles();
     const [checked, setChecked] = useState([]);
+    const { productList, setProductList } = useProductService();
+
+    useEffect(() => {
+        setProductList(results);
+    }, []);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -34,6 +40,10 @@ const FilterComponent = () => {
 
         setChecked(newChecked);
     };
+
+    const handleSliderChange = (event, value) => {
+        setProductList(results.filter((data) => data.price <= value));
+    }
 
     return (
         <div className="filter-container">
@@ -78,8 +88,9 @@ const FilterComponent = () => {
                     valueLabelDisplay="auto"
                     step={500}
                     marks
-                    min={0}
-                    max={2000}
+                    min={1000}
+                    max={3000}
+                    onChangeCommitted={handleSliderChange}
                 />
             </div>
         </div>

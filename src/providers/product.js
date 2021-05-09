@@ -8,10 +8,13 @@ export function useProductService() {
 
 const ProductProvider = (props) => {
     const [cartData, setCartData] = useState([]);
+    const [productList, setProductList] = useState([]);
 
     const value = {
         cartData,
-        setCartData
+        setCartData,
+        productList,
+        setProductList
     }
 
     return (
