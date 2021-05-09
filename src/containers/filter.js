@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const FilterComponent = ({ results }) => {
     const classes = useStyles();
     const [checked, setChecked] = useState([]);
-    const { productList, setProductList } = useProductService();
+    const { setProductList } = useProductService();
 
     useEffect(() => {
         setProductList(results);
